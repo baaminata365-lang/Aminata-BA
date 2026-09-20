@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aminata Ba — Portfolio</title>
+<meta name="description" content="Aminata Ba — étudiante en communication digitale et informatique appliquée à Dakar. Développement web, réseaux, cybersécurité.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0A0510;
+  --carte:#150C1E;
+  --bord:rgba(185,139,255,.14);
+  --bord-vif:rgba(255,106,170,.45);
+  --rose:#FF6AAA;
+  --lilas:#B98BFF;
+  --creme:#F8ECF4;
+  --doux:#9B84AB;
+
+  --display:'Syne',system-ui,sans-serif;
+  --corps:'Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--nuit);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){background:var(--nuit)}}
+:root[data-theme="dark"]{background:var(--nuit)}
+
+*,*::before,*::after{box-sizing:inherit}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(62px + env(safe-area-inset-top,0px))}
+body{
+  margin:0;background:var(--nuit);color:var(--creme);
+  font-family:var(--corps);font-size:16px;line-height:1.65;font-weight:300;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+p{margin:0}
+.cadre{width:100%;max-width:960px;margin:0 auto;padding:0 22px}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;
+  background:rgba(10,5,16,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--bord)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.logo{font-family:var(--display);font-weight:800;font-size:17px;text-decoration:none;flex:0 0 auto}
+.logo i{color:var(--rose);font-style:normal}
+.menu{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{font-size:13.5px;text-decoration:none;color:var(--doux);white-space:nowrap;
+  padding:3px 0;border-bottom:1.5px solid transparent;transition:color .18s,border-color .18s}
+.menu a:hover{color:var(--creme)}
+.menu a.actif{color:var(--rose);border-bottom-color:var(--rose)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:76px 0 68px;overflow:hidden}
+.halo{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.halo.a{width:460px;height:460px;top:-170px;left:-140px;background:rgba(255,106,170,.34)}
+.halo.b{width:400px;height:400px;bottom:-200px;right:-140px;background:rgba(185,139,255,.26)}
+.hero-in{position:relative}
+.dispo{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;color:var(--lilas);
+  font-weight:500;border:1px solid var(--bord);border-radius:999px;padding:6px 14px;margin-bottom:24px}
+.pt{width:7px;height:7px;border-radius:50%;background:var(--rose)}
+@media (prefers-reduced-motion: no-preference){
+  .pt{animation:halo 2.8s ease-out infinite}
+  @keyframes halo{0%{box-shadow:0 0 0 0 rgba(255,106,170,.5)}70%{box-shadow:0 0 0 12px rgba(255,106,170,0)}100%{box-shadow:0 0 0 0 rgba(255,106,170,0)}}
+}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(44px,12vw,80px);
+  line-height:.92;letter-spacing:-.04em;margin:0}
+h1 span{background:linear-gradient(100deg,var(--rose),var(--lilas));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.titre-pro{font-size:clamp(17px,4.2vw,21px);font-weight:500;margin-top:20px;color:var(--creme)}
+.accroche{font-size:16px;color:var(--doux);margin-top:12px;max-width:52ch}
+.boutons{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+.btn{text-decoration:none;font-size:14.5px;font-weight:500;padding:12px 24px;border-radius:999px;
+  border:1px solid var(--bord);transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--bord-vif);background:rgba(255,106,170,.08)}
+.btn.plein{background:linear-gradient(100deg,var(--rose),#D97BD6);border-color:transparent;
+  color:#15070F;font-weight:700}
+.btn.plein:hover{background:linear-gradient(100deg,#FF7FB6,#E389DE)}
+
+/* ---------- SECTIONS ---------- */
+section{padding:66px 0;position:relative}
+section + section::before{content:"";position:absolute;top:0;left:22px;right:22px;height:1px;
+  background:linear-gradient(90deg,rgba(255,106,170,.3),rgba(185,139,255,.1),transparent)}
+.entete{margin-bottom:34px}
+.num{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--lilas);display:block;margin-bottom:8px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,6.5vw,38px);
+  letter-spacing:-.03em;line-height:1.08;margin:0}
+.intro{font-size:15.5px;color:var(--doux);margin-top:10px;max-width:58ch}
+
+/* ---------- ABOUT ---------- */
+.about{display:grid;gap:30px}
+@media(min-width:760px){.about{grid-template-columns:1.35fr 1fr;gap:44px}}
+.about p{font-size:16px;max-width:56ch}
+.about p + p{margin-top:14px}
+.about strong{font-weight:500;color:var(--rose)}
+.faits{border:1px solid var(--bord);border-radius:16px;padding:20px;background:var(--carte);height:fit-content}
+.fait{display:flex;justify-content:space-between;gap:14px;padding:9px 0;font-size:14px;
+  border-bottom:1px solid rgba(185,139,255,.1)}
+.fait:last-child{border-bottom:0}
+.fait .k{color:var(--doux);flex:0 0 auto}
+.fait .v{text-align:right}
+
+/* ---------- PROJETS ---------- */
+.projets{display:grid;gap:20px}
+@media(min-width:760px){.projets{grid-template-columns:1fr 1fr}}
+.projet{border:1px solid var(--bord);border-radius:18px;overflow:hidden;background:var(--carte);
+  display:flex;flex-direction:column;transition:border-color .22s,transform .22s}
+.projet:hover{border-color:var(--bord-vif);transform:translateY(-3px)}
+.visuel{height:132px;display:flex;align-items:center;justify-content:center;position:relative}
+.visuel.un{background:linear-gradient(135deg,#FF6AAA,#C86ACB)}
+.visuel.deux{background:linear-gradient(135deg,#B98BFF,#FF8FC0)}
+.visuel b{font-family:var(--display);font-weight:800;font-size:27px;color:#14060F;letter-spacing:-.02em}
+.corps-p{padding:22px 20px 24px;display:flex;flex-direction:column;flex:1}
+.genre{font-size:11px;font-weight:700;letter-spacing:.09em;color:var(--lilas);margin-bottom:9px}
+.projet h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em;margin:0 0 9px}
+.projet p{font-size:14.5px;color:var(--creme);opacity:.86}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{font-size:12px;padding:4px 11px;border-radius:999px;border:1px solid var(--bord);color:var(--doux)}
+.pied-p{margin-top:16px;padding-top:14px;border-top:1px solid rgba(185,139,255,.1);
+  font-size:12.5px;color:var(--doux)}
+.note{margin-top:22px;font-size:14px;color:var(--doux);border-left:2px solid var(--bord-vif);
+  padding-left:14px;max-width:60ch}
+.note strong{color:var(--rose);font-weight:500}
+
+/* ---------- COMPÉTENCES ---------- */
+.stacks{display:grid;gap:22px}
+@media(min-width:680px){.stacks{grid-template-columns:1fr 1fr;gap:26px 34px}}
+.stack h3{font-size:14.5px;font-weight:700;margin:0 0 4px;display:flex;align-items:center;gap:9px}
+.stack h3::before{content:"";width:15px;height:2px;border-radius:2px;background:var(--rose);flex:0 0 auto}
+.stack p{font-size:14.5px;color:var(--doux);margin-bottom:12px}
+
+/* ---------- EXPÉRIENCE / FORMATION ---------- */
+.ligne-item{padding:22px 0;border-bottom:1px solid rgba(185,139,255,.1)}
+.ligne-item:last-child{border-bottom:0;padding-bottom:0}
+.ligne-item:first-child{padding-top:0}
+.quand{font-size:12.5px;color:var(--lilas);font-weight:500;margin-bottom:4px}
+.ligne-item h3{font-family:var(--corps);font-size:17.5px;font-weight:500;margin:0 0 3px;line-height:1.35}
+.ligne-item .lieu{font-size:14px;color:var(--doux);margin-bottom:9px}
+.ligne-item p{font-size:15px;max-width:62ch;opacity:.9}
+.ligne-item ul{margin:9px 0 0;padding-left:0;list-style:none}
+.ligne-item li{font-size:14.5px;color:var(--doux);padding-left:17px;position:relative;margin-bottom:4px}
+.ligne-item li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1.5px;background:var(--lilas)}
+
+/* ---------- CERTIFS ---------- */
+.duo{display:grid;gap:15px}
+@media(min-width:680px){.duo{grid-template-columns:1fr 1fr}}
+.certif{border:1px solid var(--bord);border-radius:15px;padding:20px 18px;background:var(--carte)}
+.certif .cat{font-size:10.5px;font-weight:700;letter-spacing:.09em;color:var(--rose);margin-bottom:9px}
+.certif b{display:block;font-weight:500;font-size:16px;line-height:1.35}
+.certif span{font-size:13.5px;color:var(--doux)}
+.certif code{font-family:var(--corps);font-size:12px;color:rgba(155,132,171,.7);display:block;
+  margin-top:9px;word-break:break-all}
+
+/* ---------- LANGUES ---------- */
+.langues{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+.lang{border:1px solid var(--bord);border-radius:13px;padding:13px 19px;flex:1 1 150px}
+.lang b{display:block;font-weight:500;font-size:15.5px}
+.lang span{font-size:13px;color:var(--doux)}
+
+/* ---------- CONTACT ---------- */
+.boite{border:1px solid var(--bord-vif);border-radius:20px;padding:30px 24px;
+  background:linear-gradient(155deg,rgba(255,106,170,.12),rgba(185,139,255,.04))}
+.coord{display:flex;flex-direction:column}
+.coord a,.coord .st{display:flex;justify-content:space-between;gap:12px;align-items:baseline;
+  text-decoration:none;padding:13px 0;border-bottom:1px solid rgba(185,139,255,.12);
+  font-size:15.5px;word-break:break-all}
+.coord .st{border-bottom:0}
+.coord a:hover{color:var(--rose)}
+.coord .k{color:var(--doux);font-size:13px;flex:0 0 auto}
+
+footer{text-align:center;padding:30px 20px calc(40px + env(safe-area-inset-bottom,0px));
+  font-size:12.5px;color:rgba(155,132,171,.5);border-top:1px solid var(--bord)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="cadre nav-in">
+    <a class="logo" href="#top">AB<i>.</i></a>
+    <div class="menu">
+      <a href="#about">About me</a>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#experience">Expérience</a>
+      <a href="#formation">Formation</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="halo a"></div>
+  <div class="halo b"></div>
+  <div class="cadre hero-in">
+    <span class="dispo"><span class="pt"></span> Disponible pour un stage — Dakar</span>
+    <h1>Aminata <span>Ba</span></h1>
+    <p class="titre-pro">Étudiante en communication digitale &amp; informatique appliquée</p>
+    <p class="accroche">En route vers les réseaux et la cybersécurité.</p>
+    <div class="boutons">
+      <a class="btn plein" href="#projets">Voir mes projets</a>
+      <a class="btn" href="#contact">Me contacter</a>
+      <a class="btn" href="https://www.linkedin.com/in/aminata-ba-1a2830357" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="about">
+  <div class="cadre">
+    <div class="entete">
+      <span class="num">01</span>
+      <h2>About me</h2>
+    </div>
+    <div class="about">
+      <div>
+        <p>Je suis étudiante à Dakar, en <strong>2ᵉ année de licence Communication Digitale</strong> à l'Université Cheikh Hamidou Kane. J'entame en octobre 2026 ma <strong>2ᵉ année de licence Sciences Informatique Appliquée</strong> à Swiss UMEF University.</p>
+        <p>Côté technique, je débute et je l'assume. Je construis mes projets en vibe coding avec l'IA : je conçois, je lis le code, je teste, je corrige, je déploie. Deux sites sont en ligne aujourd'hui.</p>
+        <p>Mon objectif professionnel est clair : les <strong>réseaux</strong> et la <strong>cybersécurité</strong>. J'ai commencé à m'y former en dehors de mon cursus, par certification.</p>
+      </div>
+      <div class="faits">
+        <div class="fait"><span class="k">Localisation</span><span class="v">Guédiawaye, Dakar</span></div>
+        <div class="fait"><span class="k">Cursus</span><span class="v">Double licence</span></div>
+        <div class="fait"><span class="k">Objectif</span><span class="v">Cybersécurité &amp; réseaux</span></div>
+        <div class="fait"><span class="k">Recherche</span><span class="v">Stage / alternance</span></div>
+        <div class="fait"><span class="k">Disponibilité</span><span class="v">Immédiate</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="cadre">
+    <div class="entete">
+      <span class="num">02</span>
+      <h2>Projets</h2>
+      <p class="intro">Conçus, codés et mis en ligne par moi, de la première maquette au déploiement.</p>
+    </div>
+    <div class="projets">
+
+      <article class="projet">
+        <div class="visuel un"><b>Yume Style</b></div>
+        <div class="corps-p">
+          <p class="genre">SITE E-COMMERCE</p>
+          <h3>Yume Style</h3>
+          <p>Boutique de mode féminine pensée pour le marché dakarois : catalogue en collections, filtres par catégorie, panier, formulaire de contact et moyens de paiement mobiles locaux. Identité de marque et textes produits rédigés par mes soins.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Netlify</span></div>
+          <p class="pied-p">En ligne · lien communiqué sur demande</p>
+        </div>
+      </article>
+
+      <article class="projet">
+        <div class="visuel deux"><b>Eternal Love</b></div>
+        <div class="corps-p">
+          <p class="genre">SITE PERSONNEL</p>
+          <h3>Eternal Love</h3>
+          <p>Projet personnel mené sans cahier des charges, entièrement de mon initiative. Travail sur l'interface, l'ambiance visuelle, la typographie et le comportement responsive.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Netlify</span></div>
+          <p class="pied-p">En ligne · lien communiqué sur demande</p>
+        </div>
+      </article>
+
+    </div>
+    <p class="note">Les deux projets ont été développés en <strong>vibe coding avec l'IA</strong> : conception par itérations, lecture et correction du code généré, tests sur mobile, puis déploiement.</p>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="cadre">
+    <div class="entete">
+      <span class="num">03</span>
+      <h2>Compétences</h2>
+      <p class="intro">Ce que je maîtrise aujourd'hui, à mon niveau de débutante.</p>
+    </div>
+    <div class="stacks">
+      <div class="stack">
+        <h3>Développement web</h3>
+        <p>Construire un site complet, le rendre responsive et le mettre en ligne.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Netlify</span></div>
+      </div>
+      <div class="stack">
+        <h3>Développement assisté par IA</h3>
+        <p>Vibe coding : concevoir par itérations, lire le code, tester, déboguer.</p>
+        <div class="tags"><span class="tag">Conception assistée</span><span class="tag">Débogage</span><span class="tag">Déploiement</span></div>
+      </div>
+      <div class="stack">
+        <h3>Réseaux &amp; cybersécurité</h3>
+        <p>Notions fondamentales validées par certification, en cours d'approfondissement.</p>
+        <div class="tags"><span class="tag">Protocoles</span><span class="tag">Types de réseaux</span><span class="tag">Bases sécurité</span></div>
+      </div>
+      <div class="stack">
+        <h3>Communication digitale</h3>
+        <p>Rédaction commerciale, contenu social, identité de marque.</p>
+        <div class="tags"><span class="tag">Rédaction</span><span class="tag">Réseaux sociaux</span><span class="tag">Branding</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="cadre">
+    <div class="entete">
+      <span class="num">04</span>
+      <h2>Expérience</h2>
+    </div>
+    <div class="ligne-item">
+      <p class="quand">Depuis 2024 · en activité</p>
+      <h3>Entrepreneuriat — vente en ligne</h3>
+      <p class="lieu">Activité indépendante, Dakar</p>
+      <p>Gestion complète d'une activité de vente sur les réseaux sociaux.</p>
+      <ul>
+        <li>Sélection des produits et politique de prix</li>
+        <li>Visuels, annonces et textes de vente</li>
+        <li>Relation client, commandes et livraisons</li>
+        <li>Encaissement par paiement mobile</li>
+      </ul>
+    </div>
+    <div class="ligne-item">
+      <p class="quand">Juillet – août 2025</p>
+      <h3>Stagiaire</h3>
+      <p class="lieu">TGI, entreprise informatique — Dakar</p>
+      <p>Appui sur des tâches numériques et découverte du fonctionnement d'une structure IT.</p>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="cadre">
+    <div class="entete">
+      <span class="num">05</span>
+      <h2>Formation &amp; certifications</h2>
+    </div>
+
+    <div class="ligne-item">
+      <p class="quand">2025 – en cours · 2ᵉ année</p>
+      <h3>Licence Communication Digitale</h3>
+      <p class="lieu">Université Cheikh Hamidou Kane (UNCHK) — cohorte P12</p>
+    </div>
+    <div class="ligne-item">
+      <p class="quand">Dès octobre 2026 · 2ᵉ année</p>
+      <h3>Licence Sciences Informatique Appliquée</h3>
+      <p class="lieu">Swiss UMEF University of Dakar</p>
+    </div>
+    <div class="ligne-item">
+      <p class="quand">2024</p>
+      <h3>Baccalauréat littéraire</h3>
+      <p class="lieu">Cours privé Inchallah School, Dakar</p>
+    </div>
+
+    <div class="duo" style="margin-top:28px">
+      <div class="certif">
+        <p class="cat">CYBERSÉCURITÉ</p>
+        <b>Certified Cybersecurity Foundations</b>
+        <span>Hackviser — septembre 2026</span>
+        <code>HV-CORE-UXMZ920X</code>
+      </div>
+      <div class="certif">
+        <p class="cat">RÉSEAUX</p>
+        <b>Networking Basics</b>
+        <span>Cybastion, via Cisco Networking Academy — septembre 2026</span>
+        <code>Protocoles et standards · types de réseaux</code>
+      </div>
+    </div>
+
+    <div class="langues">
+      <div class="lang"><b>Wolof</b><span>Langue maternelle</span></div>
+      <div class="lang"><b>Français</b><span>Courant</span></div>
+      <div class="lang"><b>Anglais</b><span>Intermédiaire</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cadre">
+    <div class="entete">
+      <span class="num">06</span>
+      <h2>Contact</h2>
+      <p class="intro">Je recherche un stage ou une alternance en développement web, réseaux ou cybersécurité, à Dakar.</p>
+    </div>
+    <div class="boite">
+      <div class="coord">
+        <a href="mailto:baaminata365@gmail.com"><span class="k">Email</span><span>baaminata365@gmail.com</span></a>
+        <a href="tel:+221706656826"><span class="k">Téléphone</span><span>+221 70 665 68 26</span></a>
+        <a href="https://www.linkedin.com/in/aminata-ba-1a2830357" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span>aminata-ba</span></a>
+        <span class="st"><span class="k">Localisation</span><span>Guédiawaye, 15000 Dakar, Sénégal</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>© 2026 Aminata Ba — Dakar, Sénégal</footer>
+
+<script>
+(function(){
+  var liens=[].slice.call(document.querySelectorAll('.menu a'));
+  if(!liens.length||!('IntersectionObserver' in window))return;
+  var map={};
+  liens.forEach(function(a){
+    var id=a.getAttribute('href').slice(1);
+    var s=document.getElementById(id);
+    if(s)map[id]=a;
+  });
+  var obs=new IntersectionObserver(function(entrees){
+    entrees.forEach(function(e){
+      if(e.isIntersecting){
+        liens.forEach(function(a){a.classList.remove('actif')});
+        if(map[e.target.id])map[e.target.id].classList.add('actif');
+      }
+    });
+  },{rootMargin:'-50% 0px -45% 0px'});
+  Object.keys(map).forEach(function(id){obs.observe(document.getElementById(id))});
+})();
+</script>
+
+</body>
+</html>
